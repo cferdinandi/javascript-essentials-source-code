@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drum Machine</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+	<style type="text/css">
+		body {
+			margin: 0 auto;
+			max-width: 40em;
+			width: 88%;
+		}
+
+		/**
+		 * Add box sizing to everything
+		 * @link http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+		 */
+		*,
+		*:before,
+		*:after {
+		  -webkit-box-sizing: border-box;
+		          box-sizing: border-box;
+		}
+
+		#drum-machine {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: 1fr 1fr 1fr;
+			grid-column-gap: 0.3125em;
+			grid-row-gap: 0.3125em;
+			text-align: center;
+		}
+
+		button {
+			background-color: #f7f7f7;
+			border: 1px solid #e5e5e5;
+			border-radius: 0.25em;
+		}
+
+		button:focus,
+		button:hover {
+			background-color: #e5e5e5;
+		}
+
+		#drum-machine button {
+			height: 20vh;
+			width: 100%;
+		}
+
+		.text-large {
+			font-size: 1.5em;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Drum Machine</h1>
+
+	<div id="drum-machine">
+		<div>
+			<button data-drum="ride">
+				<strong class="text-large">Ride</strong>
+			</button>
+		</div>
+		<div>
+			<button data-drum="hihat1">
+				<strong class="text-large">Hi-Hat 1</strong>
+			</button>
+		</div>
+		<div>
+			<button data-drum="hihat2">
+				<strong class="text-large">Hi-Hat 2</strong>
+			</button>
+		</div>
+		<div>
+			<button data-drum="perc">
+				<strong class="text-large">Perc</strong>
+			</button>
+		</div>
+		<div>
+			<button data-drum="kick1">
+				<strong class="text-large">Kick 1</strong>
+			</button>
+		</div>
+		<div>
+			<button data-drum="kick2">
+				<strong class="text-large">Kick 2</strong>
+			</button>
+		</div>
+		<div>
+			<button data-drum="clap">
+				<strong class="text-large">Clap</strong>
+			</button>
+		</div>
+		<div>
+			<button data-drum="snare1">
+				<strong class="text-large">Snare 1</strong>
+			</button>
+		</div>
+		<div>
+			<button data-drum="snare2">
+				<strong class="text-large">Snare 2</strong>
+			</button>
+		</div>
+	</div>
+
+	<script>
+		/**
+		 * Play drum on click
+		 * @param  {Event} event The event object
+		 */
+		function clickHandler (event) {
+
+			// Only run on drum buttons
+			let btn = event.target.closest('[data-drum]');
+			if (!btn) return;
+
+			// Get the matching instrument
+			let drum = btn.getAttribute('data-drum');
+
+			// Create a new Audio object and play the sound
+			let sound = new Audio(`${drum}.mp3`);
+			sound.play();
+
+		}
+
+		// Listen for click events
+		document.addEventListener('click', clickHandler);
+	</script>
+
+</body>
+</html>

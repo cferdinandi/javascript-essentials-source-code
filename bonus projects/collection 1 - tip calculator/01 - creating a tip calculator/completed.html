@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Tip Calculator</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<style type="text/css">
+			body {
+				margin: 0 auto;
+				max-width: 40em;
+				width: 88%;
+			}
+
+			label,
+			input {
+				display: block;
+				width: 100%;
+			}
+
+			input,
+			button {
+				margin-bottom: 1em;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h1>Tip Calculator</h1>
+
+		<form id="calculator">
+
+			<label for="amount">Amount</label>
+			<input type="number" name="amount" id="amount" value="0" step=".01">
+
+			<label for="tip">Tip (<em>as %</em>)</label>
+			<input type="number" min="0" name="tip" id="tip" value="20">
+
+			<button>Calculate Tip</button>
+
+		</form>
+
+		<div id="result" aria-live="polite"></div>
+
+
+		<script>
+			// Get DOM elements
+			let calculator = document.querySelector('#calculator');
+			let result = document.querySelector('#result');
+
+			/**
+			 * Serialize all form data into an object
+			 * @param  {FormData} data The FormData object to serialize
+			 * @return {String}        The serialized form data
+			 */
+			function serialize (data) {
+				let obj = {};
+				for (let [key, value] of data) {
+					if (obj[key] !== undefined) {
+						if (!Array.isArray(obj[key])) {
+							obj[key] = [obj[key]];
+						}
+						obj[key].push(value);
+					} else {
+						obj[key] = value;
+					}
+				}
+				return obj;
+			}
+
+			/**
+			 * Calculate the tip
+			 * @param  {Event} event The submit event
+			 */
+			function submitHandler (event) {
+
+				// Stop the page from reloading
+				event.preventDefault();
+
+				// Get the form data
+				let {amount, tip} = serialize(new FormData(calculator));
+
+				// Make sure all required fields are provided
+				if (!amount || !tip) {
+					result.textContent = 'Please complete all fields.';
+					return;
+				}
+
+				// Convert values to numbers
+				amount = parseFloat(amount);
+				tip = parseFloat(tip) / 100;
+
+				// Calculate the total
+				let tipAmount = amount * tip;
+				let total = amount + tipAmount;
+
+				// Show tip and total
+				result.textContent = `Tip $${tipAmount} for a total of $${total}.`;
+
+			}
+
+			// Listen for submit events
+			calculator.addEventListener('submit', submitHandler);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Easter Egg</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<style type="text/css">
+			body {
+				margin: 0 auto;
+				max-width: 40em;
+				width: 88%;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h1>Easter Egg</h1>
+
+		<p>Nothing to see here...</p>
+
+
+		<script>
+			// The pattern to match
+			let pattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+
+			// The number of current matches
+			let matches = 0;
+
+			/**
+			 * Handle key press events
+			 * @param  {Event} event The event object
+			 */
+			function keyHandler (event) {
+
+				// Check if the pressed key matches the current item in the pattern
+				// If not, reset the matches
+				console.log(event.code, matches, pattern[matches]);
+				if (event.code !== pattern[matches]) {
+					matches = 0;
+					return;
+				}
+
+				// If it does, increase the number of matches
+				matches++;
+
+				// If the full pattern is matched, give the user a prize!
+				if (matches === pattern.length) {
+					window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+				}
+
+			}
+
+			// Listen for key events
+			document.addEventListener('keydown', keyHandler);
+		</script>
+	</body>
+</html>

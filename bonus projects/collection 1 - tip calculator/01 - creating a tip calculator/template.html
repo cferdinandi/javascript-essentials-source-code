@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Tip Calculator</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<style type="text/css">
+			body {
+				margin: 0 auto;
+				max-width: 40em;
+				width: 88%;
+			}
+
+			label,
+			input {
+				display: block;
+				width: 100%;
+			}
+
+			input,
+			button {
+				margin-bottom: 1em;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h1>Tip Calculator</h1>
+
+		<form id="calculator">
+
+			<label for="amount">Amount</label>
+			<input type="number" name="amount" id="amount" value="0" step=".01">
+
+			<label for="tip">Tip (<em>as %</em>)</label>
+			<input type="number" min="0" name="tip" id="tip" value="20">
+
+			<button>Calculate Tip</button>
+
+		</form>
+
+		<div id="result"></div>
+
+
+		<script>
+			// Code goes here...
+		</script>
+	</body>
+</html>
