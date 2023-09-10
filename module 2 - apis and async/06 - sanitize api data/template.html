@@ -77,8 +77,8 @@
 
 			// Get articles
 			Promise.all([
-				fetch('https://courses.gomakethings.com/endpoints/dragons.json'),
-				fetch('https://courses.gomakethings.com/endpoints/dragons-authors.json'),
+				fetch('https://vanillajsacademy.com/api/dragons.json'),
+				fetch('https://vanillajsacademy.com/api/dragons-authors.json'),
 			]).then(function (responses) {
 				return Promise.all(responses.map(function (response) {
 					return response.json();

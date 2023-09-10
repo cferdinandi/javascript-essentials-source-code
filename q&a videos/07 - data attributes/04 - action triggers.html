@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Action Triggers</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<h1>Action Triggers</h1>
+
+		<button data-click="sayHi">Say Hello!</button>
+		<button data-click="expand">Show More</button>
+
+		<form data-submit="login">
+			<!-- ... -->
+		</form>
+
+
+		<script>
+			//
+			// Unique selector
+			//
+
+			let helloBtn = document.querySelector('[data-click="sayHi"]');
+			helloBtn.addEventListener('click', function () {
+				console.log('Hello there!');
+			});
+
+
+			//
+			// Event delegation
+			//
+
+			document.addEventListener('click', function (event) {
+
+				// Get the data-click value
+				let type = event.target.getAttribute('data-click');
+				if (!type) return;
+
+				// Run value-specific code
+				if (type === 'sayHi') {
+					console.log('Hello there!');
+				}
+
+			});
+
+
+			//
+			// Handler object
+			//
+
+			let handlers = {
+				sayHi (event) {
+					console.log('Hello there!');
+				},
+				expand (event) {
+					// Do stuff...
+				},
+				login (event) {
+					// Also do stuff...
+				}
+			};
+
+			document.addEventListener('click', function (event) {
+
+				// Get the data-click value
+				let type = event.target.getAttribute('data-click');
+				if (!type || !handlers[type]) return;
+
+				// Run value-specific code
+				handlers[type](event);
+
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Arrow functions vs. Traditional functions</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<script>
+			function add (num1, num2) {
+				return num1 + num2;
+			}
+
+			// This isn't any more brief
+			let add = (num1, num2) => {
+				return num1 + num2;
+			};
+
+			// And this takes more mental energy to understand
+			let add = (num1, num2) => num1 + num2;
+
+
+
+			let wizards = [
+				{
+					name: 'Merlin',
+					tool: 'wand'
+				},
+				{
+					name: 'Gandalf',
+					tool: 'staff'
+				}
+			];
+
+			// This is a bit easier to write
+			let wizardNames = wizards.map((wizard) => {
+				return wizard.name;
+			});
+
+			// This is slightly more verbose
+			let wizardNames = wizards.map(function (wizard) {
+				return wizard.name;
+			});
+
+
+
+			let calculator = {
+				add: function (num1, num2) {
+					console.log(this);
+					return num1 + num2;
+				},
+				subtract: (num1, num2) => {
+					console.log(this);
+					return num1 - num2;
+				}
+			};
+		</script>
+	</body>
+</html>

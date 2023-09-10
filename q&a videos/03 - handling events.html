@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Different ways to handle events</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			body {
+				margin: 1em auto;
+				max-width: 40em;
+				width: 88%;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<nav>
+			<button onclick="clickHandler()">Show Hidden Thing 1</button>
+			<button>Show Hidden Thing 2</button>
+			<button>Show Hidden Thing 3</button>
+		</nav>
+
+		<button>Show Hidden Thing 4</button>
+		<button>Show Hidden Thing 5</button>
+
+		<script>
+			function clickHandler (event) {
+				if (!event.target.matches('nav button')) return;
+				console.log(event.target);
+			}
+
+			let btn = document.querySelector('button');
+			btn.addEventListener('click', clickHandler);
+
+			document.addEventListener('click', clickHandler);
+		</script>
+
+	</body>
+</html>

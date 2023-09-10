@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Variable Data</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<h1>Variable Data</h1>
+
+		<button data-name="Merlin">Say Hi</button>
+		<button data-name="Ursula">Say Hello</button>
+		<button data-name="Gandalf">Say Hey</button>
+
+
+		<script>
+			document.addEventListener('click', function (event) {
+
+				let name = event.target.getAttribute('data-greet');
+				if (!name) return;
+
+				console.log(`Hey there, ${name}!`);
+
+			});
+		</script>
+	</body>
+</html>

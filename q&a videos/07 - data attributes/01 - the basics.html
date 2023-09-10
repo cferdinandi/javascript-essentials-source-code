@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Data attributes</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<h1>Data attributes</h1>
+
+		<button data-click>Click Me</button>
+		<button data-name="Merlin">Say Hi</button>
+
+		<script>
+			let btn = document.querySelector('button');
+			let name = btn.getAttribute('data-name');
+		</script>
+	</body>
+</html>

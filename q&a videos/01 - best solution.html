@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Best Solution</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+
+
+		<script>
+			let wizards = ['Merlin', 'Ursula', 'Morgana', 'Radagast'];
+
+
+			//
+			// Approach 1: for...of loop
+			//
+
+			let listItems = '';
+
+			for (let wizard of wizards) {
+				listItems += `<li>${wizard}</li>`;
+			}
+
+			let list = `<ul>${listItems}</ul>`;
+
+
+			//
+			// Approach 2: .map() and .join()
+			//
+
+			let listItems = wizards.map(function (wizard) {
+				return `<li>${wizard}</li>`;
+			}).join('');
+
+			let list = `<ul>${listItems}</ul>`;
+		</script>
+	</body>
+</html>

@@ -79,7 +79,7 @@
 			let articles;
 
 			// Call the APIs
-			fetch('https://courses.gomakethings.com/endpoints/dragons.json').then(function (response) {
+			fetch('https://vanillajsacademy.com/api/dragons.json').then(function (response) {
 				if (response.ok) {
 					return response.json();
 				}
@@ -90,7 +90,7 @@
 				articles = data.articles;
 
 				// Get the author data
-				return fetch('https://courses.gomakethings.com/endpoints/dragons-authors.json');
+				return fetch('https://vanillajsacademy.com/api/dragons-authors.json');
 
 			}).then(function (response) {
 				if (response.ok) {

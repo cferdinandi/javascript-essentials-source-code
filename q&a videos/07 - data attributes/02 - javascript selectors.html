@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>JavaScript Selectors</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<h1>JavaScript Selectors</h1>
+
+		<div class="expand">
+			Some content that can be collapsed or expanded.
+		</div>
+
+		<div class="js-expand">
+			Some content that can be collapsed or expanded.
+		</div>
+
+		<div class="expand js-expand">
+			Some content that can be collapsed or expanded.
+		</div>
+
+		<div class="expand" data-expand>
+			Some content that can be collapsed or expanded.
+		</div>
+
+
+		<script>
+			let accordion = document.querySelector('[data-expand]');
+		</script>
+	</body>
+</html>

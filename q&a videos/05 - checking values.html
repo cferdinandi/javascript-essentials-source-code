@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Checking values</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<script>
+			let wizard = {
+			    name: 'Merlin',
+			    spells: {
+			        levitate: {
+			            materials: ['moss', 'a pinch of salt'],
+			            phrase: 'Levioso!'
+			        },
+			        summon: {
+			            materials: ['diamond dust', 'a drop of water'],
+			            phrase: 'Abracadabra!'
+			        }
+			    }
+			};
+
+			// Uncaught TypeError: Cannot read property 'phrase' of undefined
+			let teacups = wizard.spells.teacup.phrase;
+
+
+			// Using an if statement
+			let teacups;
+			if (wizard.spells && wizard.spells.teacup) {
+			    teacups = wizard.spells.teacup.phrase;
+			}
+
+			// Using a ternary operator
+			let teacups2 = wizard.spells && wizard.spells.teacup ? wizard.spells.teacup.phrase : null;
+
+
+			// returns undefined but does not throw an error
+			let teacups3 = wizard?.spells?.teacup?.phrase;
+		</script>
+	</body>
+</html>
