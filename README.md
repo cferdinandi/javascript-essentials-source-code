@@ -1,2 +1,2 @@
 # JavaScript Essentials Source Code
-All of the source code for the [JavaScript Essentials course](https://gomakethings.com/js-essentials/).
+All of the source code for the [JavaScript Essentials workshop](https://vanillajsacademy.com/essentials/).
